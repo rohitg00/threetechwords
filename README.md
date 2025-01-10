@@ -16,11 +16,15 @@
   - 😤 Frustrated (Developer Pain)
   - 👶 Kid-Friendly (Simple Explanations)
 
+![TechMind Logo](techmind.png)
 ### Special Features
 - **Matrix Mode**: Type `/t` or `/transform` before your term for a cool Matrix-style output
 - **GitHub Authentication**: Track your learning progress with GitHub login
 - **Learning Streaks**: Keep track of your searched terms and build streaks
 - **Shareable Stats Card**: Generate and download beautiful stats cards showing your learning journey
+- **GitHub Stats**: View your GitHub activity and contributions directly in your profile
+
+![TechMind Stats Card](techmind-stats.png)
 
 ### Technical Features
 - **Real-time Processing**: Instant explanations powered by advanced AI
@@ -95,6 +99,7 @@
 - Count unique terms
 - Monitor search streaks
 - Generate shareable stats cards
+- View GitHub contributions and activity
 
 ### 4. User Experience
 - Smooth animations
@@ -143,4 +148,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
     <a href="https://threetechwords.com">Website</a> •
     <a href="https://x.com/ghumare64">Twitter</a>
   </p>
-</div> 
+</div>
