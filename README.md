@@ -50,7 +50,7 @@
 1. Clone the repository:
    ```bash
    git clone https://github.com/rohitg00/threetechwords.git
-   cd techmind
+   cd threetechwords
    ```
 
 2. Install dependencies:
