@@ -63,7 +63,7 @@ export function setupAuth(app: Express) {
     clientID: process.env.GITHUB_CLIENT_ID!,
     clientSecret: process.env.GITHUB_CLIENT_SECRET!,
     callbackURL: process.env.NODE_ENV === 'production' 
-      ? 'https://your-production-url/api/auth/github/callback'
+      ? `${process.env.PRODUCTION_URL}/api/auth/github/callback`
       : 'http://localhost:5001/api/auth/github/callback',
     scope: ['user:email']
   },
