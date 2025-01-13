@@ -52,30 +52,9 @@ export default function Home() {
   // Handle term input with transformer mode
   const handleTermChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-
     if (value.startsWith('/t ') || value.startsWith('/transform ')) {
       setIsTransformed(true);
-      const actualTerm = value.split(' ').slice(1).join(' ');
-      setTerm(actualTerm);
-
-      // Show ASCII animation
-      setShowAscii(true);
-      setAsciiFrame(0);
-      let frame = 0;
-      const interval = setInterval(() => {
-        frame++;
-        setAsciiFrame(prev => (prev + 1) % asciiFrames.length);
-        if (frame >= asciiFrames.length * 2) {
-          clearInterval(interval);
-          setTimeout(() => setShowAscii(false), 1000);
-        }
-      }, 500);
-
-      toast({
-        title: "Transformer Mode Activated",
-        description: "01001101 01000001 01010100 01010010 01001001 01011000",
-        variant: "default",
-      });
+      setTerm(value); // Keep the entire input including /t or /transform
     } else {
       setIsTransformed(false);
       setShowAscii(false);
@@ -502,7 +481,41 @@ export default function Home() {
               <form onSubmit={(e) => {
                 e.preventDefault();
                 if (!term.trim()) return;
-                explanation.mutate(term);
+                
+                if (isTransformed) {
+                  // Extract the actual term without the prefix
+                  const actualTerm = term.startsWith('/transform ') 
+                    ? term.slice('/transform '.length)
+                    : term.slice('/t '.length);
+                  
+                  // Apply matrix transformation on submit
+                  const transformedTerm = matrixify(actualTerm);
+                  setTerm(transformedTerm);
+                  
+                  // Show ASCII animation
+                  setShowAscii(true);
+                  setAsciiFrame(0);
+                  let frame = 0;
+                  const interval = setInterval(() => {
+                    frame++;
+                    setAsciiFrame(prev => (prev + 1) % asciiFrames.length);
+                    if (frame >= asciiFrames.length * 2) {
+                      clearInterval(interval);
+                      setTimeout(() => setShowAscii(false), 1000);
+                    }
+                  }, 500);
+
+                  toast({
+                    title: "Transformer Mode Activated",
+                    description: "01001101 01000001 01010100 01010010 01001001 01011000",
+                    variant: "default",
+                  });
+                  
+                  // Use the actual term for the API call
+                  explanation.mutate(actualTerm);
+                } else {
+                  explanation.mutate(term);
+                }
               }} className="flex gap-2 w-full">
                 <Input
                   value={term}

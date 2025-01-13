@@ -39,25 +39,24 @@ export function transformText(text: string): string {
 
 // Function to add matrix-like characters around text
 export function matrixify(text: string): string {
-  // Convert text to uppercase for Matrix style
-  const upperText = text.toUpperCase();
+  // Define characters that can be transformed
+  const matrixMap: Record<string, string> = {
+    'a': '4',
+    'e': '3',
+    'i': '1',
+    'o': '0',
+    's': '5',
+    't': '7',
+    'b': '8',
+    'g': '6',
+    'z': '2'
+  };
   
-  // Add Matrix-style characters
-  const matrixChars = '01';
-  let result = '';
-  
-  for (let i = 0; i < upperText.length; i++) {
-    const char = upperText[i];
-    // Add a random matrix character before each letter
-    if (char !== ' ') {
-      result += matrixChars[Math.floor(Math.random() * matrixChars.length)];
+  return text.toLowerCase().split('').map(char => {
+    if (matrixMap[char]) {
+      // Add matrix number before the character only
+      return `${matrixMap[char]}${char}`;
     }
-    result += char;
-    // Add a random matrix character after each letter
-    if (char !== ' ') {
-      result += matrixChars[Math.floor(Math.random() * matrixChars.length)];
-    }
-  }
-  
-  return result;
+    return char;
+  }).join('');
 }
