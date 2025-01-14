@@ -609,8 +609,18 @@ export default function Home() {
         </AnimatePresence>
 
         {/* Footer */}
-        <div className="text-center text-muted-foreground text-sm font-mono pb-8">
+        <div className="text-center text-muted-foreground text-sm font-mono pb-8 space-y-2">
           <p>Made with ❤️ by <a href="https://x.com/ghumare64" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Rohit Ghumare</a></p>
+          <p>
+            <a 
+              href="https://github.com/rohitg00/threetechwords.git" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-mono glow"
+            >
+              ⭐ Star us on GitHub
+            </a>
+          </p>
         </div>
       </div>
     </div>
