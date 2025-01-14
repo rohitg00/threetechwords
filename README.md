@@ -6,6 +6,8 @@
   <p>Demystifying technology, three words at a time.</p>
 </div>
 
+# [Detailed Step-by-Step Guide available here](https://ghumare64.medium.com/learn-tech-in-three-words-62d4dee79b9b)
+
 ## 🌟 Features
 
 ### Core Features
